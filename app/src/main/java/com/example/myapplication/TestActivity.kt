@@ -2,19 +2,13 @@ package com.example.myapplication
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import org.w3c.dom.Text
-import java.util.Locale
 
 class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     //ПЕРЕМЕННЫЕ
@@ -34,6 +28,7 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     private lateinit var dateExp: TextView
     private lateinit var timeExp: TextView
     private lateinit var btnDate: Button
+    private lateinit var btnTime: Button
 
 
     //СОЗДАНИЕ СТРАНИЦЫ ЕБУЧЕЙ
@@ -43,12 +38,16 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
         dateExp = findViewById(R.id.btExport)
         timeExp = findViewById(R.id.btExport2)
         btnDate = findViewById(R.id.btPicker)
+        btnTime = findViewById(R.id.btnTime)
 
 
 
 
         btnDate.setOnClickListener {
             pickDate()
+        }
+        btnTime.setOnClickListener {
+            pickTime()
         }
 
     }
@@ -69,7 +68,9 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     }
 
     private fun pickTime() {
-        TODO("Not yet implemented")
+        getDateTimeCalendar()
+
+        TimePickerDialog(this,this,hour,minute,true).show()
     }
 
     override fun onTimeSet(
@@ -77,7 +78,9 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
         hourOfDay: Int,
         minute: Int
     ) {
-        TODO("Not yet implemented")
+        savedHour = hourOfDay
+        savedMinute = minute
+        timeExp.text = "$savedHour:$savedMinute"
     }
 
     override fun onDateSet(
