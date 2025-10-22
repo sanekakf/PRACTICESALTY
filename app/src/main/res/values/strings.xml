@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="timeValue">ВРЕМЯ БУДЕТ ПОКАЫЗВАТЬСЯ ТУТ</string>
+    <string name="Activity2MainHeader">Создание заявки на ремонт</string>
 </resources>

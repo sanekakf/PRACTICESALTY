@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:text="Создание заявки на ремонт"
+            android:text="@string/Activity2MainHeader"
 
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,9 +51,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/input_border"
+            app:boxStrokeColor="#FF0000"
+            app:hintTextColor="#EDDBDB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColorHint="@color/dopbg"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="Имя владельца"
+
+
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_marginStart="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/input_border"
         android:id="@+id/constraintLayout9"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -64,9 +89,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:textColorHint="@color/dopbg"
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_marginStart="20dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Номер телефона"
+
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/input_border"
         android:id="@+id/constraintLayout10"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -77,9 +122,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:textColorHint="@color/dopbg"
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_marginStart="20dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Модель автомобиля"
+
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/input_border"
         android:id="@+id/constraintLayout11"
         android:layout_width="0dp"
         android:layout_height="111dp"
@@ -90,32 +155,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
 
-        <TextView
-            android:id="@+id/btExport2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.204"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.489" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:textColorHint="@color/dopbg"
 
-        <TextView
-            android:id="@+id/btExport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.763"
-            app:layout_constraintStart_toEndOf="@+id/btExport2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_marginStart="20dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Описание проблемы"
+
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout12"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="15dp"
@@ -126,23 +189,55 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout11">
 
         <Button
+
             android:id="@+id/btPicker"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Pick date"
+
+            android:background="@drawable/input_border"
+            android:text="Выберите дату"
+            android:textColor="@color/dopbg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnTime"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Pick time"
+
+            android:background="@drawable/input_border"
+            android:text="Выберите время"
+            android:textColor="@color/dopbg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout12">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:background="@drawable/green_button_send"
+            android:text="Отправить заявку"
+            android:textColor="@color/white"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

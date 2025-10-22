@@ -6,7 +6,6 @@ import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
-import android.widget.TextView
 import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,7 +16,6 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     var year =0
     var hour = 0
     var minute =0
-
     var savedDay =0
     var savedMonth =0
     var savedYear =0
@@ -25,8 +23,6 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     var savedMinute =0
 
     //Объекты
-    private lateinit var dateExp: TextView
-    private lateinit var timeExp: TextView
     private lateinit var btnDate: Button
     private lateinit var btnTime: Button
 
@@ -35,14 +31,12 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        dateExp = findViewById(R.id.btExport)
-        timeExp = findViewById(R.id.btExport2)
         btnDate = findViewById(R.id.btPicker)
         btnTime = findViewById(R.id.btnTime)
 
 
 
-
+        //Обработка событий
         btnDate.setOnClickListener {
             pickDate()
         }
@@ -51,6 +45,7 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
         }
 
     }
+
     private fun getDateTimeCalendar(){
         val cal = Calendar.getInstance()
         day = cal.get(Calendar.DAY_OF_MONTH)
@@ -80,7 +75,6 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     ) {
         savedHour = hourOfDay
         savedMinute = minute
-        timeExp.text = "$savedHour:$savedMinute"
     }
 
     override fun onDateSet(
@@ -92,9 +86,6 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
         savedDay = dayOfMonth
         savedMonth = month+1
         savedYear = year
-        dateExp.text = "$savedDay-$savedMonth-$savedYear"
-
-
     }
 
 }
