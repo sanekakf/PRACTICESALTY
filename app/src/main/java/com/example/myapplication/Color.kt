@@ -1,10 +1,12 @@
 package com.example.myapplication
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,6 +24,8 @@ class Color : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     //Объекты
 
     private lateinit var btnDate: Button
+    private lateinit var btnBack: ImageView
+
 
     //Код
 
@@ -34,15 +38,20 @@ class Color : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         btnDate = findViewById<Button>(R.id.btnDate)
+        btnBack = findViewById<ImageView>(R.id.btnBack)
 
         btnDate.setOnClickListener {
             datePick()
         }
+        btnBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
-    private fun getDateTimeCalendar(){
+    private fun getDateTimeCalendar() {
         val cal = Calendar.getInstance()
         day = cal.get(Calendar.DAY_OF_MONTH)
         month = cal.get(Calendar.MONTH)
@@ -51,7 +60,7 @@ class Color : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     private fun datePick() {
         getDateTimeCalendar()
-        DatePickerDialog(this, this, year,month,day).show()
+        DatePickerDialog(this, this, year, month, day).show()
 
     }
 
@@ -62,7 +71,7 @@ class Color : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         dayOfMonth: Int
     ) {
         savedDay = dayOfMonth
-        savedMonth = month+1
+        savedMonth = month + 1
         savedYear = year
         btnDate.text = "Дата - $savedYear/$savedMonth/$savedDay"
     }
