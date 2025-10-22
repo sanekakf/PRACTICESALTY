@@ -75,6 +75,7 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
     ) {
         savedHour = hourOfDay
         savedMinute = minute
+        btnTime.text = "Время: Часы-$savedHour Минуты-$savedMinute"
     }
 
     override fun onDateSet(
@@ -86,6 +87,7 @@ class TestActivity : AppCompatActivity(), TimePickerDialog.OnTimeSetListener, Da
         savedDay = dayOfMonth
         savedMonth = month+1
         savedYear = year
+        btnDate.text = "Дата - $savedYear/$savedMonth/$savedDay"
     }
 
 }
