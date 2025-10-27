@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, TestActivity::class.java)
             startActivity(intent)
         }
+        btnStat.setOnClickListener {
+            val intent = Intent(this, StatActivity::class.java)
+            startActivity(intent)
+        }
         btnColor.setOnClickListener {
             val intent = Intent(this, Color::class.java)
             startActivity(intent)
