@@ -1,38 +1,38 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
+about: Создание тикета на баг
+title: "[BUG]"
 labels: ''
-assignees: ''
+assignees: sanekakf
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Опишите ошибку**
+Четкое и сжатое описание, в чем заключается ошибка.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Для воспроизведения**
+Шаги для воспроизведения поведения:
+1. Перейдите к "..."
+2. Нажмите "...."
+3. Прокрутите вниз до "...."
+4. Посмотрите сообщение об ошибке
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Ожидаемое поведение**
+Четкое и сжатое описание того, что вы ожидали увидеть.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Скриншоты**
+Если применимо, добавьте скриншоты, которые помогут объяснить вашу проблему.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**Рабочий стол (пожалуйста, заполните следующую информацию):**
+ - Операционная система: [например, iOS]
+ - Браузер [например, chrome, safari]
+ - Версия [например, 22]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+**Смартфон (пожалуйста, заполните следующую информацию):**
+ - Устройство: [например, iPhone6]
+ - ОПЕРАЦИОННАЯ система: [например, iOS8.1]
+ - Браузер [например, обычный браузер, safari]
+ - Версия [например, 22]
 
-**Additional context**
-Add any other context about the problem here.
+**Дополнительный контекст**
+Добавьте сюда любой другой контекст, касающийся проблемы.
