@@ -2,7 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dopWhite">#A2A2A2</color>
     <color name="mainBg">#000000</color>
     <color name="dopbg">#60BF60</color>
     <color name="grey">#353535</color>
+    <color name="orange">#FF5722</color>
+    <color name="purple">#673AB7</color>
 </resources>
