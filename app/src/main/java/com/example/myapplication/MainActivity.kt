@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                         val ordersMap = parseOrders(response)
                         ordersMap.forEach { (key, order) ->
                             println("Ключ: $key, Владелец: ${order.ownerName}, Машина: ${order.carModel}")
-                            val tableRow = LayoutInflater.from(this@MainActivity).inflate(R.layout.table_row, null) as TableRow
+                            val tableRow = LayoutInflater.from(tableRepair.context).inflate(R.layout.table_row, null) as TableRow
                             val rowPhone : TextView = tableRow.findViewById(R.id.Phone)
                             val rowModel : TextView = tableRow.findViewById(R.id.Model)
                             val rowDate : TextView = tableRow.findViewById(R.id.Date)
