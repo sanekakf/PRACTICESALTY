@@ -31,12 +31,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tableRepair: TableLayout
     private lateinit var tablePainting: TableLayout
 
-    fun parseOrders(jsonString: String): Map<String, repair_request>{
+    fun parseRepairOrders(jsonString: String): Map<String, repair_request>{
         /*
         *
         * */
         val type = object: TypeToken<Map<String, repair_request>>() {}.type
         return Gson().fromJson(jsonString, type)
+    }
+
+    fun parsePaintingOrders(jsonString: String): Map<String, painting_request>{
+        val type = object: TypeToken<Map<String, painting_request>>(){}.type
+        return Gson().fromJson(jsonString,type)
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -58,6 +63,8 @@ class MainActivity : AppCompatActivity() {
 
 
         //PARSE FROM API MY  FCKNG SERVER
+
+        //repair table
         GlobalScope.launch(Dispatchers.IO) {
                 val url = URL("http://77.232.139.226:8080/api/repair_requests")
                 val httpURLConnection = url.openConnection() as HttpURLConnection
@@ -71,10 +78,9 @@ class MainActivity : AppCompatActivity() {
                     val response = httpURLConnection.inputStream.bufferedReader().use { it.readText() }  // defaults to UTF-8
                     withContext(Dispatchers.Main) {
 
-                        val ordersMap = parseOrders(response)
+                        val ordersMap = parseRepairOrders(response)
                         ordersMap.forEach { (key, order) ->
-                            println("Ключ: $key, Владелец: ${order.ownerName}, Машина: ${order.carModel}")
-                            val tableRow = LayoutInflater.from(tableRepair.context).inflate(R.layout.table_row, null) as TableRow
+                            val tableRow = LayoutInflater.from(tableRepair.context).inflate(R.layout.repair_table_row, null) as TableRow
                             val rowPhone : TextView = tableRow.findViewById(R.id.Phone)
                             val rowModel : TextView = tableRow.findViewById(R.id.Model)
                             val rowDate : TextView = tableRow.findViewById(R.id.Date)
@@ -101,9 +107,49 @@ class MainActivity : AppCompatActivity() {
             }
 
 
+        //painting table
+        GlobalScope.launch(Dispatchers.IO) {
+            val url = URL("http://77.232.139.226:8080/api/painting_requests")
+            val httpURLConnection = url.openConnection() as HttpURLConnection
+            httpURLConnection.setRequestProperty("Accept", "application/json") // The format of response we want to get from the server
+            httpURLConnection.requestMethod = "GET"
+            httpURLConnection.doInput = true
+            httpURLConnection.doOutput = false
+            // Check if the connection is successful
+            val responseCode = httpURLConnection.responseCode
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                val response = httpURLConnection.inputStream.bufferedReader().use { it.readText() }  // defaults to UTF-8
+                withContext(Dispatchers.Main) {
+
+                    val ordersMap = parsePaintingOrders(response)
+                    ordersMap.forEach { (key, order) ->
+                        val tableRow = LayoutInflater.from(tablePainting.context).inflate(R.layout.painting_table_row, null) as TableRow
+                        val rowModel : TextView = tableRow.findViewById(R.id.Model)
+                        val rowColor : TextView = tableRow.findViewById(R.id.Color)
+                        val rowDate : TextView = tableRow.findViewById(R.id.Date)
+                        val rowStatus : TextView = tableRow.findViewById(R.id.Status)
+
+                        rowModel.text = order.carModel
+                        rowColor.text = order.color
+                        rowDate.text = order.date
+                        rowStatus.text = order.status
+
+
+                        tablePainting.addView(tableRow)
+
+                    }
+
+
+
+                }
+            } else {
+                Log.e("HTTPURLCONNECTION_ERROR", responseCode.toString())
+            }
+        }
+
         //
         btnRem.setOnClickListener {
-            val intent = Intent(this, TestActivity::class.java)
+            val intent = Intent(this, RepairRequestActivity::class.java)
             startActivity(intent)
         }
         btnStat.setOnClickListener {
@@ -111,7 +157,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnColor.setOnClickListener {
-            val intent = Intent(this, Color::class.java)
+            val intent = Intent(this, ColorRequestActivity::class.java)
             startActivity(intent)
         }
 
