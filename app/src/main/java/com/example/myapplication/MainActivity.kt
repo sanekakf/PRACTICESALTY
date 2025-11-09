@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity() {
         return Gson().fromJson(jsonString,type)
     }
 
+    fun delete ( id: Int, type: String){
+        println(id)
+        println(type)
+    }
+
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         //repair table
         GlobalScope.launch(Dispatchers.IO) {
-                val url = URL("http://77.232.139.226:8080/api/repair_requests")
+                val url = URL("http://77.232.139.226:8080/api/repair_requests/1")
                 val httpURLConnection = url.openConnection() as HttpURLConnection
                 httpURLConnection.setRequestProperty("Accept", "application/json") // The format of response we want to get from the server
                 httpURLConnection.requestMethod = "GET"
@@ -87,11 +93,21 @@ class MainActivity : AppCompatActivity() {
                             val rowTime : TextView = tableRow.findViewById(R.id.Time)
                             val rowStatus : TextView = tableRow.findViewById(R.id.Status)
 
+                            val editBtn : ImageView = tableRow.findViewById(R.id.Edit)
+                            val doneBtn : ImageView = tableRow.findViewById(R.id.Done)
+                            val delBtn : ImageView = tableRow.findViewById(R.id.Delete)
+
+                            delBtn.setOnClickListener {
+                                delete(order.id, "repair")
+                            }
+
+                            tableRow.id = order.id
                             rowPhone.text = order.phoneNumber
                             rowModel.text = order.carModel
                             rowDate.text = order.date
                             rowTime.text = order.time
                             rowStatus.text = order.status
+
 
 
                             tableRepair.addView(tableRow)
@@ -109,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
         //painting table
         GlobalScope.launch(Dispatchers.IO) {
-            val url = URL("http://77.232.139.226:8080/api/painting_requests")
+            val url = URL("http://77.232.139.226:8080/api/painting_requests/1")
             val httpURLConnection = url.openConnection() as HttpURLConnection
             httpURLConnection.setRequestProperty("Accept", "application/json") // The format of response we want to get from the server
             httpURLConnection.requestMethod = "GET"
@@ -129,6 +145,15 @@ class MainActivity : AppCompatActivity() {
                         val rowDate : TextView = tableRow.findViewById(R.id.Date)
                         val rowStatus : TextView = tableRow.findViewById(R.id.Status)
 
+                        val editBtn : ImageView = tableRow.findViewById(R.id.Edit)
+                        val doneBtn : ImageView = tableRow.findViewById(R.id.Done)
+                        val delBtn: ImageView = tableRow.findViewById(R.id.Delete)
+
+                        delBtn.setOnClickListener {
+                            delete(order.id, "painting")
+                        }
+
+                        tableRow.id = order.id
                         rowModel.text = order.carModel
                         rowColor.text = order.color
                         rowDate.text = order.date
