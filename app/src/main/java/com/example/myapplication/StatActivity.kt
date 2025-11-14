@@ -84,7 +84,7 @@ class StatActivity : AppCompatActivity() {
         var donePaintReq = 0
         //REPAIR TABLE
         GlobalScope.launch(Dispatchers.IO) {
-            val url = URL("http://77.232.139.226:8080/api/repair_requests/0")
+            val url = URL("http://77.232.139.226:8080/api/repair_requests")
             val httpURLConnection = url.openConnection() as HttpURLConnection
             httpURLConnection.setRequestProperty(
                 // The format of response we want to get from the server
@@ -156,7 +156,7 @@ class StatActivity : AppCompatActivity() {
 
         //PAINTING TABLE
         GlobalScope.launch(Dispatchers.IO) {
-            val url = URL("http://77.232.139.226:8080/api/painting_requests/0")
+            val url = URL("http://77.232.139.226:8080/api/painting_requests")
             val httpURLConnection = url.openConnection() as HttpURLConnection
             httpURLConnection.setRequestProperty(
                 // The format of response we want to get from the server
