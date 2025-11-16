@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         //repair table
         GlobalScope.launch(Dispatchers.IO) {
-                val url = URL("http://77.232.139.226:8080/api/repair_requests")
+                val url = URL("http://95.31.5.158:8080/api/repair_requests")
                 val httpURLConnection = url.openConnection() as HttpURLConnection
                 httpURLConnection.setRequestProperty("Accept", "application/json") // The format of response we want to get from the server
                 httpURLConnection.requestMethod = "GET"
@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
 
         //painting table
         GlobalScope.launch(Dispatchers.IO) {
-            val url = URL("http://77.232.139.226:8080/api/painting_requests")
+            val url = URL("http://95.31.5.158:8080/api/painting_requests")
             val httpURLConnection = url.openConnection() as HttpURLConnection
             httpURLConnection.setRequestProperty("Accept", "application/json") // The format of response we want to get from the server
             httpURLConnection.requestMethod = "GET"

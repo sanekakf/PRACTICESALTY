@@ -114,7 +114,7 @@ class ColorRequestActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
         jsonObject.put("date",date)
         val jsonObjectString = jsonObject.toString()
         GlobalScope.launch(Dispatchers.IO) {
-            val url = URL("http://77.232.139.226:8080/api/painting_requests")
+            val url = URL("http://95.31.5.158:8080/api/painting_requests")
             val httpURLConnection = url.openConnection() as HttpURLConnection
             httpURLConnection.requestMethod = "POST"
             httpURLConnection.setRequestProperty(
